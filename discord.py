@@ -70,7 +70,7 @@ def get_guild_roles(guild_id, role_id : int=None):
     for role in data.json():
         if (int(role['id']) == role_id):
             return role
-    #if not role in data its return the all data
+    #if role not in data its return the all data
     return data.json()
 
 def delete_guild_role(guild_id, role_id):
@@ -114,7 +114,7 @@ delete_guild_role(guild_id, role_id)
 import requests
 token = "Your Token XXXXXXXXXXXXXXXXXXXXXXXXX"
 
-#event when you get message is print the message
+#event when you get new message is print the message info, im use threading to create the event
 messages_data = []
 data = requests.get('https://discord.com/api/v9/users/@me/channels', headers={"authorization": token}).json()
 for da in data:
